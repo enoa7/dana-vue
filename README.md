@@ -2,7 +2,7 @@
 
 ## Preview
 
-To view the site go to [https://enoa7.github.io/dana-web-app/dist/index.html](https://enoa7.github.io/dana-web-app/index.html)
+To view the site go to [https://enoa7.github.io/dana-web-app/](https://enoa7.github.io/dana-web-app)
 
 ## Project setup
 ```
