@@ -7,25 +7,28 @@
             <img class="app-logo" src="@/assets/dana-logo.svg" alt />
           </a>
 
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="toggleSubmenu">
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            @click="toggleSubmenu"
+          >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
 
-        <div
-          class="navbar-menu"
-          :class="{ 'is-active': isSubmenuActive }"
-        >
-
+        <div class="navbar-menu" :class="{ 'is-active': isSubmenuActive }">
           <div class="navbar-end">
             <a
               class="navbar-item"
               :href="item.url"
               v-for="(item, index) in links"
               :key="index"
-            >{{item.title}}</a>
+              >{{ item.title }}</a
+            >
           </div>
         </div>
       </nav>
