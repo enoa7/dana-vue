@@ -2,7 +2,7 @@
   <section class="hero" v-bind:style="{ backgroundImage: `url('${banner}')` }">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title">Chuck Norris Jokes</h1>
+        <h1 class="title is-spaced">Chuck Norris Jokes</h1>
         <h2 class="subtitle">{{ detail && detail.value }}</h2>
       </div>
     </div>

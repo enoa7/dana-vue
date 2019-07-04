@@ -1,0 +1,13 @@
+$sizes: (.25, .5, 1, 1.25, 1.5, 2, 2.25, 2.5, 3);
+$positions: ("top", "left", "bottom", "right");
+
+@each $size in $sizes {
+	@each $position in $positions {
+		.m#{str-slice($position, 0, 1)}-#{$size} {
+			margin-#{$position}: $size + rem;
+		}
+		.p#{str-slice($position, 0, 1)}-#{$size} {
+			padding-#{$position}: $size + rem;
+		}
+	}
+}
