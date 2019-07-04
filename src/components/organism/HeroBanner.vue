@@ -4,6 +4,7 @@
       <div class="container">
         <h1 class="title is-spaced">Chuck Norris Jokes</h1>
         <h2 class="subtitle">{{ detail && detail.value }}</h2>
+        <a class="button is-link is-inverted is-outlined is-medium is-fullwidth">Learn More</a>
       </div>
     </div>
   </section>
@@ -40,6 +41,9 @@ export default {
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
+  min-height: 320px;
+  height: 100%;
+  overflow-y: hidden;
   .title,
   .subtitle {
     color: $light;
