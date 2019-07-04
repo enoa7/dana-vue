@@ -7,5 +7,12 @@ module.exports = {
         "~": path.resolve(__dirname, "./node_modules")
       }
     }
+  },
+  css: {
+    loaderOptions: {
+      sass: {
+        data: `@import "./node_modules/bulma/sass/utilities/_all.sass";`
+      }
+    }
   }
 };

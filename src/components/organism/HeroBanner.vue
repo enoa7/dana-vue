@@ -15,23 +15,23 @@ export default {
   name: "HeroBanner",
   data() {
     return {
-      banner: 'https://source.unsplash.com/random',
+      banner: "https://source.unsplash.com/random",
       detail: null
     };
   },
   methods: {
     getChuckNorrisJokes() {
-      Axios.get("https://api.chucknorris.io/jokes/random").then(resp => {
-        this.detail = resp.data;
-      })
-      .catch(err => {
-          console.error('Error!', err)
-      })
-    },
+      Axios.get("https://api.chucknorris.io/jokes/random")
+        .then(resp => {
+          this.detail = resp.data;
+        })
+        .catch(err => {
+          console.error("Error!", err);
+        });
+    }
   },
   mounted() {
     this.getChuckNorrisJokes();
-    this.getRandomBg();
   }
 };
 </script>
@@ -40,5 +40,10 @@ export default {
 .hero {
   background-repeat: no-repeat;
   background-size: cover;
+  .title,
+  .subtitle {
+    color: $light;
+    text-align: center;
+  }
 }
 </style>

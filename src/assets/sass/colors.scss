@@ -1,0 +1,21 @@
+@import "~bulma/sass/utilities/initial-variables";
+@import "~bulma/sass/utilities/functions";
+
+$azureRadiance: #108ee9;
+$azureRadiance-invert: #ef7116;
+$tundora: #444444;
+$tundora-invert: #bbbbbb;
+
+@import "~bulma/sass/utilities/derived-variables.sass";
+$addColors: (
+	"azureRadiance": (
+		$azureRadiance,
+		$azureRadiance-invert,
+	),
+	"tundora": (
+		$tundora,
+		$tundora-invert,
+	),
+);
+
+$colors: map-merge($colors, $addColors);

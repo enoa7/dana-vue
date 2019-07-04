@@ -1,8 +1,6 @@
 /** Bulma config */
 
 /** end of config */
-
-$color-primary: #108ee9;
-$color-secondary: rgba(68, 68, 68, 0.9);
+@import "./colors.scss";
 
 @import "~bulma/bulma";
