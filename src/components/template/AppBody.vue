@@ -1,5 +1,6 @@
 <template>
   <div class="app-body">
+    <HeroBanner />
     <ul>
       <li v-for="list in lists" :key="list.id">
         <h4>{{ list.title }}</h4>
@@ -9,9 +10,12 @@
 </template>
 <script>
 import axios from "axios";
-
+import HeroBanner from "@/components/organism/HeroBanner";
 export default {
   name: "AppBody",
+  components: {
+    HeroBanner
+  },
   data() {
     return {
       lists: []
