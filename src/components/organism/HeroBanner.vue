@@ -2,9 +2,15 @@
   <section class="hero" v-bind:style="{ backgroundImage: `url('${banner}')` }">
     <div class="hero-body">
       <div class="container">
-        <h1 class="title is-spaced">Chuck Norris Jokes</h1>
-        <h2 class="subtitle">{{ detail && detail.value }}</h2>
-        <a class="button is-link is-inverted is-outlined is-medium is-fullwidth">Learn More</a>
+        <Heading
+          tag="h1"
+          adClass="title is-spaced"
+          value="Chuck Norris Jokes"
+        />
+        <Heading tag="h2" adClass="subtitle" :value="detail && detail.value" />
+        <a class="button is-link is-inverted is-outlined is-medium is-fullwidth"
+          >Learn More</a
+        >
       </div>
     </div>
   </section>
@@ -12,8 +18,17 @@
 
 <script>
 import Axios from "axios";
+import Heading from "../atom/Heading";
 export default {
   name: "HeroBanner",
+  components: {
+    Heading
+  },
+  computed: {
+    h1() {
+      return "h1";
+    }
+  },
   data() {
     return {
       banner: "https://source.unsplash.com/random",
