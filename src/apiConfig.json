@@ -1,0 +1,5 @@
+{
+    "image": "https://api.unsplash.com/photos/curated/?client_id=4786ec4947a2f22505877cb7e208b33f481ab7acb7b717a9495ae7c89981f1a6",
+    "imageRandom": "https://source.unsplash.com/random",
+    "chuckNorris": "https://api.chucknorris.io/jokes/random"
+}

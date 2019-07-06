@@ -1,7 +1,9 @@
 <template>
   <div class="app-body">
     <HeroBanner />
-    <PhotoList />
+    <div class="container">
+      <PhotoList />
+    </div>
   </div>
 </template>
 <script>
