@@ -2,7 +2,6 @@
   <div id="app">
     <AppHeader />
     <AppBody />
-    <!-- <div class="app-body"></div> -->
     <div class="app-footer"></div>
   </div>
 </template>

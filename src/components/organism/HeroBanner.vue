@@ -36,14 +36,15 @@ export default {
     };
   },
   methods: {
-    getChuckNorrisJokes() {
-      Axios.get("https://api.chucknorris.io/jokes/random")
-        .then(resp => {
-          this.detail = resp.data;
-        })
-        .catch(err => {
-          console.error("Error!", err);
-        });
+    async getChuckNorrisJokes() {
+      try {
+        const { data } = await Axios.get(
+          "https://api.chucknorris.io/jokes/random"
+        );
+        this.detail = data;
+      } catch (err) {
+        console.error("Error!", err);
+      }
     }
   },
   mounted() {
