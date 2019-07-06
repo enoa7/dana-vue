@@ -18,7 +18,7 @@
 
 <script>
 import Axios from "axios";
-import Heading from "../atom/Heading";
+import Heading from "@/components/atom/Heading";
 export default {
   name: "HeroBanner",
   components: {
