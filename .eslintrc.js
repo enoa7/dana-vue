@@ -7,9 +7,13 @@ module.exports = {
   extends: [
     "plugin:vue/essential",
     "plugin:prettier/recommended",
-    "eslint:recommended"
+    "eslint:recommended",
+    "plugin:vue/recommended",
+    "prettier/vue"
   ],
   rules: {
-    "no-console": "off"
+    "vue/component-name-in-template-casing": ["error", "PascalCase"],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
   }
 };

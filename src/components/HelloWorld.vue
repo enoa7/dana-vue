@@ -87,10 +87,11 @@
 </template>
 
 <script>
+import VueTypes from "vue-types";
 export default {
   name: "HelloWorld",
   props: {
-    msg: String
+    msg: VueTypes.string.def("")
   }
 };
 </script>

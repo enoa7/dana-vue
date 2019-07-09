@@ -3,9 +3,14 @@
 </template>
 
 <script>
+import VueTypes from "vue-types";
 export default {
   name: "Heading",
-  props: ["tag", "adClass", "value"],
+  props: {
+    tag: VueTypes.any.def("h1"),
+    adClass: VueTypes.string.def(""),
+    value: VueTypes.string.def("")
+  },
   computed: {
     h1() {
       return "h1";

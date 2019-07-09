@@ -10,7 +10,7 @@
 import AppHeader from "@/components/organism/AppHeader";
 import AppBody from "@/components/template/AppBody";
 export default {
-  name: "app",
+  name: "App",
   components: {
     AppHeader,
     AppBody

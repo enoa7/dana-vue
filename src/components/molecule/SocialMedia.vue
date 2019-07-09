@@ -1,6 +1,6 @@
 <template>
   <transition name="modal-fade">
-    <div class="photo-social" v-if="isShown">
+    <div v-if="isShown" class="photo-social">
       <div class="social-item">
         <div class="social-icon">
           <i class="fa fa-instagram fa-2x"></i>
@@ -24,9 +24,12 @@
 </template>
 
 <script>
+import VueTypes from "vue-types";
 export default {
   name: "SocialMedia",
-  props: ["isShown"]
+  props: {
+    isShown: VueTypes.bool.def("false")
+  }
 };
 </script>
 

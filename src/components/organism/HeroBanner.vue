@@ -1,16 +1,18 @@
 <template>
-  <section class="hero" v-bind:style="{ backgroundImage: `url('${banner}')` }">
+  <section class="hero" :style="{ backgroundImage: `url('${banner}')` }">
     <div class="hero-body">
       <div class="container">
         <Heading
           tag="h1"
-          adClass="title is-spaced"
+          ad-class="title is-spaced"
           value="Chuck Norris Jokes"
         />
-        <Heading tag="h2" adClass="subtitle" :value="detail && detail.value" />
-        <a class="button is-link is-inverted is-outlined is-medium is-fullwidth"
-          >Learn More</a
-        >
+        <Heading tag="h2" ad-class="subtitle" :value="detail && detail.value" />
+        <div class="has-text-centered">
+          <a class="button is-link is-inverted is-outlined is-medium"
+            >Learn More</a
+          >
+        </div>
       </div>
     </div>
   </section>
@@ -24,16 +26,19 @@ export default {
   components: {
     Heading
   },
-  computed: {
-    h1() {
-      return "h1";
-    }
-  },
   data() {
     return {
       banner: "https://source.unsplash.com/random",
       detail: null
     };
+  },
+  computed: {
+    h1() {
+      return "h1";
+    }
+  },
+  mounted() {
+    this.getChuckNorrisJokes();
   },
   methods: {
     async getChuckNorrisJokes() {
@@ -46,9 +51,6 @@ export default {
         console.error("Error!", err);
       }
     }
-  },
-  mounted() {
-    this.getChuckNorrisJokes();
   }
 };
 </script>

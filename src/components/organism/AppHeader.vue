@@ -23,10 +23,10 @@
         <div class="navbar-menu" :class="{ 'is-active': isSubmenuActive }">
           <div class="navbar-end">
             <a
-              class="navbar-item"
-              :href="item.url"
               v-for="(item, index) in links"
               :key="index"
+              class="navbar-item"
+              :href="item.url"
               >{{ item.title }}</a
             >
           </div>

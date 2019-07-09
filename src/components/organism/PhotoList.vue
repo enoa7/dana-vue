@@ -21,6 +21,9 @@ export default {
       lists: []
     };
   },
+  mounted() {
+    this.getPhotos();
+  },
   methods: {
     async getPhotos() {
       try {
@@ -30,9 +33,6 @@ export default {
         console.log("error =>", err);
       }
     }
-  },
-  mounted() {
-    this.getPhotos();
   }
 };
 </script>
