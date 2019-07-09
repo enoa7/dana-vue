@@ -10,10 +10,8 @@
 </template>
 
 <script>
-import Axios from "axios";
 import Photo from "@/components/molecule/Photo";
 import Pagination from "@/components/molecule/Pagination";
-import api from "@/apiConfig.json";
 import { mapGetters } from "vuex";
 export default {
   name: "PhotoList",
@@ -30,7 +28,7 @@ export default {
     };
   },
   mounted() {
-    this.$store.dispatch("GET_PHOTOS", "1");
+    this.$store.dispatch("GET_PHOTOS", 2);
   }
 };
 </script>
