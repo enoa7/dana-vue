@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="list photo-list">
-      <li v-for="(list, index) in lists" :key="index">
+      <li v-for="(list, index) in PHOTOS" :key="index">
         <Photo :data="list" :index="index" />
       </li>
     </ul>
@@ -14,11 +14,15 @@ import Axios from "axios";
 import Photo from "@/components/molecule/Photo";
 import Pagination from "@/components/molecule/Pagination";
 import api from "@/apiConfig.json";
+import { mapGetters } from "vuex";
 export default {
   name: "PhotoList",
   components: {
     Photo,
     Pagination
+  },
+  computed: {
+    ...mapGetters(["PHOTOS"])
   },
   data() {
     return {
@@ -26,17 +30,7 @@ export default {
     };
   },
   mounted() {
-    this.getPhotos();
-  },
-  methods: {
-    async getPhotos(page = 1) {
-      try {
-        const { data } = await Axios.get(`${api.image}&per_page=5&page=${page}`);
-        this.lists = [...data];
-      } catch (err) {
-        console.log("error =>", err);
-      }
-    }
+    this.$store.dispatch("GET_PHOTOS", "1");
   }
 };
 </script>
