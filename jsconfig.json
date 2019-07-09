@@ -6,8 +6,8 @@
 		"module": "commonjs",
 		"baseUrl": ".",
 		"paths": {
-			"*": ["./src/*"],
-			"@/*": ["./src/components/*"]
+			// "*": ["./src/*"],
+			// "@/*": ["./src/components/*"]
 		}
 	},
 	"include": ["./src/**/*"],
