@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"target": "es2015",
+		"allowSyntheticDefaultImports": false,
+		"moduleResolution": "node",
+		"module": "commonjs",
+		"baseUrl": ".",
+		"paths": {
+			"*": ["./src/*"],
+			"@/*": ["./src/components/*"]
+		}
+	},
+	"include": ["./src/**/*"],
+	"exclude": ["node_modules", "dist"]
+}
