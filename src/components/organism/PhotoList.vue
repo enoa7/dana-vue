@@ -19,13 +19,13 @@ export default {
     Photo,
     Pagination
   },
-  computed: {
-    ...mapGetters(["PHOTOS"])
-  },
   data() {
     return {
       lists: []
     };
+  },
+  computed: {
+    ...mapGetters(["PHOTOS"])
   },
   mounted() {
     this.$store.dispatch("GET_PHOTOS", 2);
