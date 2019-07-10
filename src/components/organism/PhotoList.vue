@@ -43,15 +43,15 @@ export default {
 .photo-list {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+
+  // fancy grid @_@
+  @media screen and (min-width: 1216px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+  }
 
   li {
-    @media screen and (min-width: 1216px) {
-      flex: 1 0 21%;
-      margin: 1.5rem 0.5rem;
-    }
+    padding: 1rem;
   }
 }
 </style>

@@ -98,7 +98,7 @@ export default {
   }
   @media screen and (min-width: 1216px) {
     background: inherit;
-    width: 301px;
+    // width: 301px;
     height: 226px;
     background-size: cover;
 
