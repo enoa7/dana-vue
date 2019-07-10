@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <div class="container is-widescreen">
+    <div class="container">
       <nav class="navbar">
         <div class="navbar-brand">
           <a class="navbar-item" href="/">

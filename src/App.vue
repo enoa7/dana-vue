@@ -2,18 +2,20 @@
   <div id="app">
     <AppHeader />
     <AppBody />
-    <div class="app-footer"></div>
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import AppHeader from "@/components/organism/AppHeader";
 import AppBody from "@/components/template/AppBody";
+import AppFooter from "@/components/template/AppFooter";
 export default {
   name: "App",
   components: {
     AppHeader,
-    AppBody
+    AppBody,
+    AppFooter
   }
 };
 </script>
@@ -24,5 +26,11 @@ export default {
 
 #app {
   font-family: $family-sans-serif;
+}
+
+.clearfix {
+  content: "";
+  clear: both;
+  display: table;
 }
 </style>

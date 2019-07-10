@@ -8,7 +8,9 @@
         class="pagination-link"
         :class="{ 'is-current': index == PAGE }"
         @click="getPhotosByPage(index)"
-      >{{ index }}</li>
+      >
+        {{ index }}
+      </li>
       <li class="pagination-link" @click="goToNext">Next</li>
     </ul>
   </nav>
