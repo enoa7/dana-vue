@@ -12,7 +12,10 @@
               <img src="@/assets/image/instagram.png" alt="instagram" />
             </li>
             <li>
-              <img src="@/assets/image/twitter-logo-silhouette.png" alt="twitter" />
+              <img
+                src="@/assets/image/twitter-logo-silhouette.png"
+                alt="twitter"
+              />
             </li>
           </ul>
         </div>
@@ -25,7 +28,10 @@
             </ul>
           </nav>
           <div class="copyright">
-            <p>&copy; 2017 DANA - PT. Espay Debit Indonesia KOE. All Rights Reserverd.</p>
+            <p>
+              &copy; 2017 DANA - PT. Espay Debit Indonesia KOE. All Rights
+              Reserverd.
+            </p>
           </div>
         </div>
       </div>
@@ -62,9 +68,9 @@ export default {
   }
 
   > li {
-      display: inline-block;
-      padding-left: 1rem;
-      padding-right: 1rem;
+    display: inline-block;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   @media screen and (min-width: 769px) {
@@ -94,8 +100,8 @@ export default {
 
 .columns {
   color: $white;
-//   padding-left: 1.5rem;
-//   padding-right: 1.5rem;
+  //   padding-left: 1.5rem;
+  //   padding-right: 1.5rem;
   align-items: center;
 }
 .column--left {
