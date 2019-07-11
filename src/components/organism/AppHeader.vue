@@ -44,12 +44,12 @@ export default {
       isSubmenuActive: false,
       links: [
         {
-          title: "about",
-          ur: "#"
+          title: "About",
+          url: "/about"
         },
         {
-          title: "contact us",
-          ur: "#"
+          title: "Contact Us",
+          url: "/contact-us"
         }
       ]
     };
