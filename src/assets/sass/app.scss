@@ -1,12 +1,19 @@
 /** Bulma config */
 
 /** end of config */
-@import "./colors.scss";
 @import "./spacing.scss";
+
+@import "./variables.scss";
 
 @import "~bulma/bulma";
 
 img.img-fluid {
 	max-width: 100%;
 	height: auto;
+}
+
+html,
+body {
+	color: $text-color;
+	font-family: HelveticaNeue;
 }

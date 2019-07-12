@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .app-footer {
-  background: #108ee9;
+  background: $azureRadiance;
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-top: 2rem;

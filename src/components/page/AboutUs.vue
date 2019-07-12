@@ -17,7 +17,7 @@
     </div>
     <h2 class="title is-2 text-center">Lorem Ipsum</h2>
     <div class="columns py-5">
-      <div class="column" v-for="(val, index) in 4" :key="index">
+      <div v-for="(val, index) in 4" :key="index" class="column">
         <div class="card card--transparent">
           <div class="card-header">
             <div class="card-image">
@@ -28,9 +28,12 @@
           </div>
           <div class="card-body">
             <div class="card-title">Lorem Ipsum</div>
-            <div
-              class="card-detail"
-            >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse nec turpis convallis, rutrum arcu eleifend, efficitur leo. Quisque finibus nibh urna, vitae tincidunt tortor imperdiet sed.</div>
+            <div class="card-detail">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse nec turpis convallis, rutrum arcu eleifend, efficitur
+              leo. Quisque finibus nibh urna, vitae tincidunt tortor imperdiet
+              sed.
+            </div>
           </div>
         </div>
       </div>

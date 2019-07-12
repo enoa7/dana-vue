@@ -4,14 +4,14 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        "~": path.resolve(-dirname, "./node_modules")
+        "~": path.resolve(__dirname, "./node_modules")
       }
     }
   },
   css: {
     loaderOptions: {
       sass: {
-        data: `@import "./node_modules/bulma/sass/utilities/_all.sass";`
+        data: `@import "@/assets/sass/variables.scss"; @import "./node_modules/bulma/sass/utilities/_all.sass";`
       }
     }
   }
