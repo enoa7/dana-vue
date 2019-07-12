@@ -1,26 +1,28 @@
 <template>
   <div class="photo">
-    <div class="photo-wrapper">
-      <div class="photo-image" :style="{ backgroundImage: `url('${url}')` }">
-        <img class="img-fluid" :src="url" alt />
-      </div>
-      <div class="photo-body is-hidden-widescreen">
-        <div class="is-flex">
-          <h6 class="photo-title">Photo {{ index + 1 }}</h6>
-          <div class="photo-meta">
-            <div class="photo-share" @click="toggleSosmed">
-              <i class="fa fa-share-alt"></i>
-            </div>
-            <div class="photo-like" @click="toggleLike">
-              <i v-if="isLiked" class="fa fa-heart"></i>
-              <i v-else class="fa fa-heart-o"></i>
-            </div>
-            <SocialMedia :is-shown="showSosmed" />
-          </div>
+    <router-link :to="{ name: 'details', params: { id: photoId } }">
+      <div class="photo-wrapper">
+        <div class="photo-image" :style="{ backgroundImage: `url('${url}')` }">
+          <img class="img-fluid" :src="url" alt />
         </div>
-        <div class="photo-desc">{{ desc }}</div>
+        <div class="photo-body is-hidden-widescreen">
+          <div class="is-flex">
+            <h6 class="photo-title">Photo {{ index + 1 }}</h6>
+            <div class="photo-meta">
+              <div class="photo-share" @click="toggleSosmed">
+                <i class="fa fa-share-alt"></i>
+              </div>
+              <div class="photo-like" @click="toggleLike">
+                <i v-if="isLiked" class="fa fa-heart"></i>
+                <i v-else class="fa fa-heart-o"></i>
+              </div>
+              <SocialMedia :is-shown="showSosmed" />
+            </div>
+          </div>
+          <div class="photo-desc">{{ desc }}</div>
+        </div>
       </div>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -46,7 +48,13 @@ export default {
     },
     url() {
       return this.data.urls.regular;
+    },
+    photoId() {
+      return this.data.id;
     }
+  },
+  mounted() {
+    // console.log("this data => ", this.data)
   },
   methods: {
     toggleLike() {

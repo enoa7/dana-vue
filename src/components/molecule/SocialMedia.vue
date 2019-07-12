@@ -28,7 +28,7 @@ import VueTypes from "vue-types";
 export default {
   name: "SocialMedia",
   props: {
-    isShown: VueTypes.bool.def("false")
+    isShown: VueTypes.bool.def(false)
   }
 };
 </script>

@@ -15,8 +15,8 @@
                 </div>
                 <div class="hero-footer is-hidden-phablet">
                   <p>
-                    Or kindly fill out this form, we’ll get back to you as quickly as
-                    possible
+                    Or kindly fill out this form, we’ll get back to you as
+                    quickly as possible
                   </p>
                 </div>
               </div>
@@ -27,7 +27,11 @@
               <div class="field">
                 <label class="label is-medium">Name</label>
                 <div class="control">
-                  <input class="input is-medium" type="text" placeholder="e.g Alex Smith" />
+                  <input
+                    class="input is-medium"
+                    type="text"
+                    placeholder="e.g Alex Smith"
+                  />
                 </div>
               </div>
 
@@ -45,13 +49,18 @@
               <div class="field">
                 <label class="label is-medium">Message</label>
                 <div class="control">
-                  <textarea class="textarea" placeholder="e.g. Hello world"></textarea>
+                  <textarea
+                    class="textarea"
+                    placeholder="e.g. Hello world"
+                  ></textarea>
                 </div>
               </div>
 
               <div class="field pt-3">
                 <div class="control">
-                  <button class="button is-link submit-btn is-medium">Submit</button>
+                  <button class="button is-link submit-btn is-medium">
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>
@@ -71,9 +80,8 @@
                 <div class="hero-footer is-hidden-mobile">
                   <p>
                     Contact our customer support or email us at
-                    <span
-                      class="color-azure bold"
-                    >help@dana.id</span> if you need help
+                    <span class="color-azure bold">help@dana.id</span> if you
+                    need help
                   </p>
                 </div>
               </div>
@@ -82,7 +90,9 @@
           <section class="pb-0">
             <div class="container px-4">
               <h2 class="title">Social Media</h2>
-              <p>Feel free to contact us at one of out social media outlets below</p>
+              <p>
+                Feel free to contact us at one of out social media outlets below
+              </p>
               <ul class="sosmed-list">
                 <li>
                   <i class="fa fa-facebook-official fa-2x color-azure"></i>
