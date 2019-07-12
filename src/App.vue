@@ -26,8 +26,14 @@ export default {
 
 #app {
   font-family: $family-sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
+.app-body {
+  flex: 1;
+}
 .clearfix {
   content: "";
   clear: both;
