@@ -29,7 +29,7 @@ export default new Vuex.Store({
   actions: {
     GET_PHOTOS: async (context, page = 1) => {
       let { data } = await await Axios.get(
-        `${api.image}&per_page=5&page=${page}`
+        `${api.image}&per_page=8&page=${page}`
       );
       context.commit("SET_PHOTOS", data);
       context.commit("SET_PAGE", page);
