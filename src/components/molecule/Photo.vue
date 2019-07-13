@@ -67,6 +67,20 @@ export default {
 };
 </script>
 
+<style lang="scss">
+.photo-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  > div {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+</style>
+
+
 <style lang="scss" scoped>
 .photo {
   // margin-bottom: 1rem;
@@ -84,16 +98,7 @@ export default {
   justify-content: space-between;
   align-items: center;
 }
-.photo-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-  > div {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
-}
 .photo-desc {
   padding-top: 0.5rem;
   padding-bottom: 1rem;

@@ -1,14 +1,14 @@
 
 <template>
   <div>
-    <AppBody />
+    <router-view />
   </div>
 </template>
 
 <script>
 import AppBody from "@/components/organism/AppBody";
 export default {
-  name: "DefaultLayout",
+  name: "PhotoDetailLayout",
   components: {
     AppBody,
   }
