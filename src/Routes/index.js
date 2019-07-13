@@ -8,7 +8,13 @@ const routes = [
   { name: "Home", path: "/", alias: "/home", component: Home },
   { name: "About", path: "/about", component: AboutUs },
   { name: "Contact Us", path: "/contact-us", component: ContactUs },
-  { name: "details", path: "/:id", component: PhotoDetail, props: true }
+  {
+    name: "details",
+    path: "/:id",
+    component: PhotoDetail,
+    props: true,
+    meta: { layout: "photo-detail" }
+  }
 ];
 
 const router = new VueRouter({ mode: "history", routes });

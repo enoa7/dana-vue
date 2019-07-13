@@ -1,21 +1,26 @@
 <template>
   <div id="app">
-    <AppHeader />
-    <AppBody />
-    <AppFooter />
+    <component :is="layout">
+      <router-view />
+    </component>
   </div>
 </template>
 
 <script>
 import AppHeader from "@/components/organism/AppHeader";
-import AppBody from "@/components/template/AppBody";
-import AppFooter from "@/components/template/AppFooter";
+import AppBody from "@/components/organism/AppBody";
+import AppFooter from "@/components/organism/AppFooter";
 export default {
   name: "App",
+  computed: {
+    layout() {
+      return (this.$route.meta.layout || "default") + "-layout";
+    }
+  },
   components: {
     AppHeader,
     AppBody,
-    AppFooter
+    AppFooter,
   }
 };
 </script>
