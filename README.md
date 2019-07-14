@@ -1,4 +1,4 @@
-# dana-fe-test
+# Photo Gallery - Dana
 
 ## Preview
 
