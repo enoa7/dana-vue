@@ -2,9 +2,12 @@
 
 ## Preview
 
-To view the site go to [https://enoa7.github.io/dana-web-app/](https://enoa7.github.io/dana-web-app)
+To view the site go to [https://enoa7.github.io/dana-vue/](https://enoa7.github.io/dana-vue/)
 
 ## Project setup
+
+Make sure you are in *develop* branch and do:
+
 ```
 yarn install
 ```
@@ -28,6 +31,3 @@ yarn run test
 ```
 yarn run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
