@@ -14,6 +14,7 @@ import Photo from "@/components/molecule/Photo";
 import Pagination from "@/components/molecule/Pagination";
 import { mapGetters } from "vuex";
 import localforage from "localforage";
+import _ from "lodash";
 export default {
   name: "PhotoList",
   components: {
@@ -28,7 +29,7 @@ export default {
   computed: {
     ...mapGetters(["PHOTOS"]),
     getData() {
-      return this.lists || this.PHOTOS;
+      return !_.isEmpty(this.lists) ? this.lists : this.PHOTOS;
     }
   },
   mounted() {
