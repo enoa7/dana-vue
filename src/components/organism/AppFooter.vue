@@ -12,19 +12,16 @@
               <img src="@/assets/image/instagram.png" alt="instagram" />
             </li>
             <li>
-              <img
-                src="@/assets/image/twitter-logo-silhouette.png"
-                alt="twitter"
-              />
+              <img src="@/assets/image/twitter-logo-silhouette.png" alt="twitter" />
             </li>
           </ul>
         </div>
         <div class="column">
           <nav>
             <ul class="menu">
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Contact Us</li>
+              <li v-for="(item, index) in links" :key="index">
+                <router-link :to="item.url" class="navbar-item">{{ item.title }}</router-link>
+              </li>
             </ul>
           </nav>
           <div class="copyright">
@@ -41,7 +38,25 @@
 
 <script>
 export default {
-  name: "AppFooter"
+  name: "AppFooter",
+  data() {
+    return {
+      links: [
+        {
+          title: "Home",
+          url: "/"
+        },
+        {
+          title: "About",
+          url: "/about"
+        },
+        {
+          title: "Contact Us",
+          url: "/contact-us"
+        }
+      ]
+    };
+  }
 };
 </script>
 
@@ -71,6 +86,13 @@ export default {
     display: inline-block;
     padding-left: 1rem;
     padding-right: 1rem;
+    a {
+      color: $white;
+
+      &:hover {
+        background: inherit;
+      }
+    }
   }
 
   @media screen and (min-width: 769px) {
