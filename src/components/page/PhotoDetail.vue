@@ -82,7 +82,7 @@ export default {
   },
   mounted() {
     localforage.getItem("selectedPhoto").then(resp => {
-      if (resp) {
+      if (resp && resp.id === this.getPhotoId) {
         this.photoData = resp;
       } else {
         this.getPhotoData();
