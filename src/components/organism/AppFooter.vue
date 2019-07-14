@@ -1,35 +1,40 @@
 <template>
   <div class="app-footer">
-    <div class="container">
-      <div class="columns">
-        <div class="column column--left">
+    <div class="container cols">
+      <div class="cols-item">
+        <div class="list--flex">
           <div>Follow Us</div>
-          <ul class="sosmed-list">
-            <li>
+          <ul class="list--flex-list my-3">
+            <li class="list--flex-item">
               <img src="@/assets/image/facebook.png" alt="facebook" />
             </li>
-            <li>
+            <li class="list--flex-item">
               <img src="@/assets/image/instagram.png" alt="instagram" />
             </li>
-            <li>
-              <img src="@/assets/image/twitter-logo-silhouette.png" alt="twitter" />
+            <li class="list--flex-item">
+              <img
+                src="@/assets/image/twitter-logo-silhouette.png"
+                alt="twitter"
+              />
             </li>
           </ul>
         </div>
-        <div class="column">
-          <nav>
-            <ul class="menu">
-              <li v-for="(item, index) in links" :key="index">
-                <router-link :to="item.url" class="navbar-item">{{ item.title }}</router-link>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright">
-            <p>
-              &copy; 2017 DANA - PT. Espay Debit Indonesia KOE. All Rights
-              Reserverd.
-            </p>
-          </div>
+      </div>
+      <div class="cols-item">
+        <nav class="list--flex">
+          <ul class="list--flex-list menu-list">
+            <li v-for="(item, index) in links" :key="index">
+              <router-link :to="item.url" class="list--flex-item navbar-item">
+                <span class="has-text-weight-bold">{{ item.title }}</span>
+              </router-link>
+            </li>
+          </ul>
+        </nav>
+        <div class="copyright">
+          <p>
+            &copy; 2017 DANA - PT. Espay Debit Indonesia KOE. All Rights
+            Reserverd.
+          </p>
         </div>
       </div>
     </div>
@@ -63,81 +68,73 @@ export default {
 <style lang="scss" scoped>
 .app-footer {
   background: $azureRadiance;
+  font-size: 0.75rem;
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-top: 2rem;
-  font-size: 0.75rem;
 
   @media screen and (min-width: 769px) {
     font-size: 1rem;
+  }
+
+  > *,
+  a {
+    color: $white;
   }
 }
 
-.menu {
-  font-size: 0.75rem;
+.list--flex {
+  $this: &;
   text-align: center;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  @media screen and (min-width: 769px) {
-    font-size: 1rem;
+
+  @media screen and (min-width: 1023px) {
+    text-align: left;
   }
 
-  > li {
-    display: inline-block;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    a {
-      color: $white;
+  &-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -1rem;
 
-      &:hover {
-        background: inherit;
+    @media screen and (min-width: 1023px) {
+      & {
+        justify-content: flex-start;
       }
     }
   }
 
-  @media screen and (min-width: 769px) {
-    text-align: right;
-    li {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
+  &-item {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
-.sosmed-list {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin-top: 1rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  @media screen and (min-width: 769px) {
-    justify-content: flex-start;
-    li {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-  }
-}
-
-.columns {
-  color: $white;
-  //   padding-left: 1.5rem;
-  //   padding-right: 1.5rem;
-  align-items: center;
-}
-.column--left {
-  text-align: center;
-  @media screen and (min-width: 769px) {
-    text-align: left;
+.list--flex-list.menu-list {
+  @media screen and (min-width: 1023px) {
+    justify-content: flex-end;
+    margin-right: -1rem;
   }
 }
 
 .copyright {
   margin-top: 1rem;
   text-align: center;
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 1023px) {
     text-align: right;
   }
+}
+
+.cols {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 1023px) {
+    flex-direction: row;
+  }
+}
+
+.cols-item {
+  flex: 1;
 }
 </style>
