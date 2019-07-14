@@ -83,9 +83,9 @@ export default {
 <style lang="scss" scoped>
 .photo {
   // margin-bottom: 1rem;
-   a {
-     color: $text-color;
-   }
+  a {
+    color: $text-color;
+  }
 }
 .photo-body {
   padding-top: 1rem;

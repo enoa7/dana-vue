@@ -2,6 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import api from "@/apiConfig.json";
 import Axios from "axios";
+import localforage from "localforage";
 
 Vue.use(Vuex);
 
@@ -40,12 +41,15 @@ export default new Vuex.Store({
       );
       context.commit("SET_PHOTOS", data);
       context.commit("SET_PAGE", page);
+
+      localforage.setItem("photos", data);
     },
     GET_PHOTO: async (context, photoId) => {
       const { data } = await Axios.get(
         `${api.getPhoto}/${photoId}?${api.client_id}`
       );
       context.commit("SET_SELECTEDPHOTO", data);
+      localforage.setItem("selectedPhoto", data);
     }
   }
 });

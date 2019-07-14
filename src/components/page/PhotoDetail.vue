@@ -39,6 +39,7 @@
 import VueTypes from "vue-types";
 import SocialMedia from "@/components/molecule/SocialMedia";
 import { mapGetters } from "vuex";
+import localforage from "localforage";
 
 export default {
   name: "PhotoDetail",
@@ -51,44 +52,42 @@ export default {
   data() {
     return {
       isLiked: false,
-      showSosmed: false
+      showSosmed: false,
+      photoData: null
     };
   },
   computed: {
+    ...mapGetters(["PHOTOS"]),
     ...mapGetters(["SELECTED_PHOTO"]),
     getPhotoId() {
       return this.id;
     },
     getData() {
-      const photos = this.$store.state.photos;
-      const target = photos.find(e => e.id === this.getPhotoId);
-      if (target) {
-        return target;
-      } else {
-        this.$store.dispatch("GET_PHOTO", this.getPhotoId);
-        return false;
-      }
-
-      // return this.$store.dispatch("GET_PHOTO", this.getPhotoId);
+      return this.photoData ? this.photoData : this.SELECTED_PHOTO;
     },
     getImage() {
-      return this.getData.urls.regular;
+      return this.getData && this.getData.urls.regular;
     },
     getTitle() {
       return "Photo";
     },
     getDesc() {
-      return (
-        this.getData.description ||
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et iaculis quam. Aenean vel pellentesque velit, et laoreet lectus. Nunc vitae libero interdum tortor lacinia lacinia at et lorem. Quisque interdum purus vitae eros imperdiet placerat. Morbi sit amet nunc dapibus, pretium ante eu, vehicula urna. Mauris efficitur risus pellentesque dictum efficitur. Aliquam erat volutpat. Ut eget elementum tellus. Sed elementum euismod viverra. Praesent varius eros ultrices turpis pellentesque ultricies. Vestibulum vel orci non ante posuere ullamcorper in auctor orci. Vivamus laoreet commodo odio sit amet porttitor. Cras tristique at dui eu sagittis. Sed porta nulla lacus, sit amet efficitur quam egestas at. Proin euismod velit id mauris finibus tempor. In ornare tincidunt nisi, at efficitur nibh sollicitudin in."
-      );
+      return this.getData
+        ? this.getData.description
+        : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et iaculis quam. Aenean vel pellentesque velit, et laoreet lectus. Nunc vitae libero interdum tortor lacinia lacinia at et lorem. Quisque interdum purus vitae eros imperdiet placerat. Morbi sit amet nunc dapibus, pretium ante eu, vehicula urna. Mauris efficitur risus pellentesque dictum efficitur. Aliquam erat volutpat. Ut eget elementum tellus. Sed elementum euismod viverra. Praesent varius eros ultrices turpis pellentesque ultricies. Vestibulum vel orci non ante posuere ullamcorper in auctor orci. Vivamus laoreet commodo odio sit amet porttitor. Cras tristique at dui eu sagittis. Sed porta nulla lacus, sit amet efficitur quam egestas at. Proin euismod velit id mauris finibus tempor. In ornare tincidunt nisi, at efficitur nibh sollicitudin in.";
     },
     getLikes() {
-      return this.getData.likes;
+      return this.getData && this.getData.likes;
     }
   },
   mounted() {
-    // console.log(this.getData);
+    localforage.getItem("selectedPhoto").then(resp => {
+      if (resp) {
+        this.photoData = resp;
+      } else {
+        this.getPhotoData();
+      }
+    });
   },
   methods: {
     toggleLike() {
@@ -96,6 +95,14 @@ export default {
     },
     toggleSosmed() {
       this.showSosmed = !this.showSosmed;
+    },
+    async getPhotoData() {
+      if (this.PHOTOS) {
+        this.photoData =
+          this.PHOTOS && this.PHOTOS.find(e => e.id === this.getPhotoId);
+      } else {
+        this.$store.dispatch("GET_PHOTO", this.getPhotoId);
+      }
     }
   }
 };
