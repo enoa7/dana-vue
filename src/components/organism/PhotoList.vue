@@ -28,7 +28,7 @@ export default {
     ...mapGetters(["PHOTOS"])
   },
   mounted() {
-    this.$store.dispatch("GET_PHOTOS", 2);
+    this.$store.dispatch("GET_PHOTOS", 1);
   }
 };
 </script>
@@ -53,5 +53,6 @@ export default {
   li {
     padding: 1rem;
   }
+
 }
 </style>

@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <router-view />
@@ -6,11 +5,7 @@
 </template>
 
 <script>
-import AppBody from "@/components/organism/AppBody";
 export default {
-  name: "PhotoDetailLayout",
-  components: {
-    AppBody,
-  }
+  name: "PhotoDetailLayout"
 };
 </script>

@@ -4,13 +4,16 @@
       <i class="fa fa-arrow-left"></i>
     </a>
     <div class="photo-header">
-      <div class="photo-image" :style="{ backgroundImage: `url('${getImage}')` }"></div>
+      <div
+        class="photo-image"
+        :style="{ backgroundImage: `url('${getImage}')` }"
+      ></div>
     </div>
     <div class="photo-body p-3">
       <div class="columns is-mobile">
         <div class="column">
-          <div class="photo-title">{{getTitle}}</div>
-          <div class="photo-likes">{{getLikes}} Likes</div>
+          <div class="photo-title">{{ getTitle }}</div>
+          <div class="photo-likes">{{ getLikes }} Likes</div>
         </div>
         <div class="column">
           <div class="photo-meta">
@@ -26,7 +29,7 @@
         </div>
       </div>
       <div class="photo-desc py-3">
-        <p>{{getDesc}}</p>
+        <p>{{ getDesc }}</p>
       </div>
     </div>
   </section>
@@ -35,6 +38,7 @@
 <script>
 import VueTypes from "vue-types";
 import SocialMedia from "@/components/molecule/SocialMedia";
+import { mapGetters } from "vuex";
 
 export default {
   name: "PhotoDetail",
@@ -51,12 +55,21 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["SELECTED_PHOTO"]),
     getPhotoId() {
       return this.id;
     },
     getData() {
       const photos = this.$store.state.photos;
-      return photos.find(e => e.id === this.getPhotoId);
+      const target = photos.find(e => e.id === this.getPhotoId);
+      if (target) {
+        return target;
+      } else {
+        this.$store.dispatch("GET_PHOTO", this.getPhotoId);
+        return false;
+      }
+
+      // return this.$store.dispatch("GET_PHOTO", this.getPhotoId);
     },
     getImage() {
       return this.getData.urls.regular;
@@ -74,16 +87,16 @@ export default {
       return this.getData.likes;
     }
   },
+  mounted() {
+    // console.log(this.getData);
+  },
   methods: {
     toggleLike() {
       this.isLiked = !this.isLiked;
     },
     toggleSosmed() {
       this.showSosmed = !this.showSosmed;
-    },
-  },
-  mounted() {
-    console.log(this.getData);
+    }
   }
 };
 </script>

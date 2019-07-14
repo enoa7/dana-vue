@@ -8,7 +8,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     page: null,
-    photos: null
+    photos: null,
+    selectedPhoto: null
   },
   getters: {
     PHOTOS: state => {
@@ -16,11 +17,17 @@ export default new Vuex.Store({
     },
     PAGE: state => {
       return state.page;
+    },
+    SELECTED_PHOTO: state => {
+      return state.selectedPhoto;
     }
   },
   mutations: {
     SET_PHOTOS: (state, payload) => {
       state.photos = payload;
+    },
+    SET_SELECTEDPHOTO: (state, payload) => {
+      state.selectedPhoto = payload;
     },
     SET_PAGE: (state, payload) => {
       state.page = payload;
@@ -28,11 +35,17 @@ export default new Vuex.Store({
   },
   actions: {
     GET_PHOTOS: async (context, page = 1) => {
-      let { data } = await await Axios.get(
-        `${api.image}&per_page=8&page=${page}`
+      let { data } = await Axios.get(
+        `${api.curatedPhotos}?&per_page=8&page=${page}&${api.client_id}`
       );
       context.commit("SET_PHOTOS", data);
       context.commit("SET_PAGE", page);
+    },
+    GET_PHOTO: async (context, photoId) => {
+      const { data } = await Axios.get(
+        `${api.getPhoto}/${photoId}?${api.client_id}`
+      );
+      context.commit("SET_SELECTEDPHOTO", data);
     }
   }
 });

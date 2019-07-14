@@ -12,15 +12,15 @@ import AppBody from "@/components/organism/AppBody";
 import AppFooter from "@/components/organism/AppFooter";
 export default {
   name: "App",
+  components: {
+    AppHeader,
+    AppBody,
+    AppFooter
+  },
   computed: {
     layout() {
       return (this.$route.meta.layout || "default") + "-layout";
     }
-  },
-  components: {
-    AppHeader,
-    AppBody,
-    AppFooter,
   }
 };
 </script>
