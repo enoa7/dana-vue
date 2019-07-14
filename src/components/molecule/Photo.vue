@@ -100,6 +100,8 @@ export default {
 <style lang="scss" scoped>
 .photo {
   // margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: $shadow;
   a {
     color: $text-color;
   }
@@ -107,6 +109,28 @@ export default {
 
 .photo-wrapper {
   position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+  }
+
+  &:hover:after {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &:hover {
+    .photo-body.mobile {
+      bottom: 0;
+    }
+  }
 }
 
 .photo-body {
@@ -117,8 +141,9 @@ export default {
 
   &.mobile {
     position: absolute;
-    bottom: 0;
-
+    transition: 0.5s;
+    bottom: -6rem;
+    z-index: 11;
     color: $white;
   }
 }

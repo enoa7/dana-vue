@@ -52,7 +52,7 @@ export default {
   right: 0;
   background: $white;
   border-radius: 0.5rem;
-  box-shadow: 0 2px 3px rgba($black, 0.1), 0 0 0 1px rgba($black, 0.1);
+  box-shadow: $shadow;
   top: -5rem;
 }
 
