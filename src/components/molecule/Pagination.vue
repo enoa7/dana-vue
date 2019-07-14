@@ -23,7 +23,7 @@ export default {
   name: "Pagination",
   data() {
     return {
-      maxPagination: 5,
+      maxPagination: 5
     };
   },
   computed: {

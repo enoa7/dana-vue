@@ -5,9 +5,13 @@
         <div class="photo-image" :style="{ backgroundImage: `url('${url}')` }">
           <img class="img-fluid" :src="url" alt />
         </div>
+        <div class="photo-body mobile is-hidden-mobile">
+          <h6 class="photo-title">{{ title }}</h6>
+          <div class="photo-desc">{{ desc }}</div>
+        </div>
         <div class="photo-body is-hidden-widescreen">
           <div class="is-flex">
-            <h6 class="photo-title">Photo {{ index + 1 }}</h6>
+            <h6 class="photo-title">{{ title }}</h6>
             <div class="photo-meta">
               <div class="photo-share" @click="toggleSosmed">
                 <i class="fa fa-share-alt"></i>
@@ -43,8 +47,21 @@ export default {
     };
   },
   computed: {
+    title() {
+      return this.data.alt_description
+        ? this.data.alt_description
+        : "Title  goes here...";
+    },
     desc() {
-      return this.data.description;
+      if (this.data.description) {
+        return this.$options.filters.truncate(
+          this.data.description,
+          "20",
+          "..."
+        );
+      } else {
+        return "Description goes here...";
+      }
     },
     url() {
       return this.data.urls.regular;
@@ -87,11 +104,23 @@ export default {
     color: $text-color;
   }
 }
+
+.photo-wrapper {
+  position: relative;
+}
+
 .photo-body {
   padding-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
   position: relative;
+
+  &.mobile {
+    position: absolute;
+    bottom: 0;
+
+    color: $white;
+  }
 }
 .photo-title {
   font-size: 1.125rem;

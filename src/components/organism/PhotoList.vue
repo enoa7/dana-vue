@@ -13,8 +13,6 @@
 import Photo from "@/components/molecule/Photo";
 import Pagination from "@/components/molecule/Pagination";
 import { mapGetters } from "vuex";
-import localforage from "localforage";
-import _ from "lodash";
 export default {
   name: "PhotoList",
   components: {
@@ -28,22 +26,17 @@ export default {
   },
   computed: {
     ...mapGetters(["PHOTOS"]),
+    ...mapGetters(["PAGE"]),
     getData() {
-      // return !_.isEmpty(this.lists) ? this.lists : this.PHOTOS;
       return this.PHOTOS;
     }
   },
   mounted() {
-    // this.$store.dispatch("GET_PHOTOS", 1);
-    this.$store.dispatch("GET_PHOTOS", 1);
-    // localforage.getItem("photos").then(resp => {
-    //   if (resp) {
-    //     this.lists = resp;
-    //   } else {
-    //     // this.getPhotoData();
-    //     this.$store.dispatch("GET_PHOTOS", 1);
-    //   }
-    // });
+    if (this.PAGE <= 0) {
+      this.$store.dispatch("GET_PHOTOS", 1);
+    } else {
+      this.$store.dispatch("GET_PHOTOS", this.PAGE);
+    }
   }
 };
 </script>
