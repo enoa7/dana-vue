@@ -3,9 +3,9 @@
     <div class="container">
       <nav class="navbar">
         <div class="navbar-brand">
-          <a class="navbar-item" href="/">
+          <router-link :to="'/'" class="navbar-item">
             <img class="app-logo" src="@/assets/dana-logo.svg" alt />
-          </a>
+          </router-link>
 
           <a
             role="button"
@@ -22,12 +22,12 @@
 
         <div class="navbar-menu" :class="{ 'is-active': isSubmenuActive }">
           <div class="navbar-end">
-            <a
+            <router-link
               v-for="(item, index) in links"
               :key="index"
+              :to="item.url"
               class="navbar-item"
-              :href="item.url"
-              >{{ item.title }}</a
+              >{{ item.title }}</router-link
             >
           </div>
         </div>

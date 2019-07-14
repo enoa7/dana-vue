@@ -1,10 +1,6 @@
 <template>
   <section class="position-relative">
-    <!-- <a class="back-button" href="/">
-      <i class="fa fa-arrow-left"></i>
-    </a>-->
-
-    <router-link :to="'Home'" class="back-button">
+    <router-link :to="'/'" class="back-button">
       <i class="fa fa-arrow-left"></i>
     </router-link>
     <div class="photo-header">
