@@ -5,6 +5,15 @@
         <div class="photo-image" :style="{ backgroundImage: `url('${url}')` }">
           <img class="img-fluid" :src="url" alt />
         </div>
+        <div class="photo-meta mobile is-hidden-mobile">
+          <div class="photo-like" @click="toggleLike">
+            <div>
+              <i v-if="isLiked" class="fa fa-heart"></i>
+              <i v-else class="fa fa-heart-o"></i>
+            </div>
+            <div>{{ getLikes }}</div>
+          </div>
+        </div>
         <div class="photo-body mobile is-hidden-mobile">
           <h6 class="photo-title">{{ title }}</h6>
           <div class="photo-desc">{{ desc }}</div>
@@ -68,6 +77,9 @@ export default {
     },
     photoId() {
       return this.data.id;
+    },
+    getLikes() {
+      return this.data.likes;
     }
   },
   mounted() {
@@ -93,6 +105,29 @@ export default {
   > div {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
+  }
+
+  &.mobile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 11;
+
+    padding: 0.5rem;
+
+    .photo-like {
+      display: flex;
+      align-items: center;
+      font-size: 0.875rem;
+      > *,
+      .fa {
+        color: $white;
+      }
+
+      > div:nth-child(2) {
+        padding-left: 0.25rem;
+      }
+    }
   }
 }
 </style>

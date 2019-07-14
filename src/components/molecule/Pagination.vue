@@ -18,7 +18,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import localforage from "localforage";
+
 export default {
   name: "Pagination",
   data() {
