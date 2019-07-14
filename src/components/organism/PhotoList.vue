@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul class="list photo-list">
-      <li v-for="(list, index) in PHOTOS" :key="index">
+      <li v-for="(list, index) in getData" :key="index">
         <Photo :data="list" :index="index" />
       </li>
     </ul>
@@ -13,6 +13,7 @@
 import Photo from "@/components/molecule/Photo";
 import Pagination from "@/components/molecule/Pagination";
 import { mapGetters } from "vuex";
+import localforage from "localforage";
 export default {
   name: "PhotoList",
   components: {
@@ -25,10 +26,20 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(["PHOTOS"])
+    ...mapGetters(["PHOTOS"]),
+    getData() {
+      return this.lists || this.PHOTOS;
+    }
   },
   mounted() {
-    this.$store.dispatch("GET_PHOTOS", 1);
+    localforage.getItem("photos").then(resp => {
+      if (resp) {
+        this.lists = resp;
+      } else {
+        // this.getPhotoData();
+        this.$store.dispatch("GET_PHOTOS", 1);
+      }
+    });
   }
 };
 </script>

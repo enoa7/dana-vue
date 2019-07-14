@@ -36,20 +36,28 @@ export default new Vuex.Store({
   },
   actions: {
     GET_PHOTOS: async (context, page = 1) => {
-      let { data } = await Axios.get(
-        `${api.curatedPhotos}?&per_page=8&page=${page}&${api.client_id}`
-      );
-      context.commit("SET_PHOTOS", data);
-      context.commit("SET_PAGE", page);
+      try {
+        let { data } = await Axios.get(
+          `${api.curatedPhotos}?&per_page=8&page=${page}&${api.client_id}`
+        );
+        context.commit("SET_PHOTOS", data);
+        context.commit("SET_PAGE", page);
 
-      localforage.setItem("photos", data);
+        localforage.setItem("photos", data);
+      } catch (err) {
+        console.log("get photos => ", err);
+      }
     },
     GET_PHOTO: async (context, photoId) => {
-      const { data } = await Axios.get(
-        `${api.getPhoto}/${photoId}?${api.client_id}`
-      );
-      context.commit("SET_SELECTEDPHOTO", data);
-      localforage.setItem("selectedPhoto", data);
+      try {
+        const { data } = await Axios.get(
+          `${api.getPhoto}/${photoId}?${api.client_id}`
+        );
+        context.commit("SET_SELECTEDPHOTO", data);
+        localforage.setItem("selectedPhoto", data);
+      } catch (err) {
+        console.log("get photo aja => ", err);
+      }
     }
   }
 });
