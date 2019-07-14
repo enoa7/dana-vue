@@ -31,3 +31,8 @@ yarn run test
 ```
 yarn run lint
 ```
+
+### For deploying
+```
+yarn deploy [your message]
+```
