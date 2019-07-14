@@ -29,18 +29,21 @@ export default {
   computed: {
     ...mapGetters(["PHOTOS"]),
     getData() {
-      return !_.isEmpty(this.lists) ? this.lists : this.PHOTOS;
+      // return !_.isEmpty(this.lists) ? this.lists : this.PHOTOS;
+      return this.PHOTOS;
     }
   },
   mounted() {
-    localforage.getItem("photos").then(resp => {
-      if (resp) {
-        this.lists = resp;
-      } else {
-        // this.getPhotoData();
-        this.$store.dispatch("GET_PHOTOS", 1);
-      }
-    });
+    // this.$store.dispatch("GET_PHOTOS", 1);
+    this.$store.dispatch("GET_PHOTOS", 1);
+    // localforage.getItem("photos").then(resp => {
+    //   if (resp) {
+    //     this.lists = resp;
+    //   } else {
+    //     // this.getPhotoData();
+    //     this.$store.dispatch("GET_PHOTOS", 1);
+    //   }
+    // });
   }
 };
 </script>

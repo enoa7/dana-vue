@@ -1,35 +1,37 @@
 <template>
   <section class="position-relative">
-    <router-link :to="'/'" class="back-button">
-      <i class="fa fa-arrow-left"></i>
-    </router-link>
-    <div class="photo-header">
-      <div
-        class="photo-image"
-        :style="{ backgroundImage: `url('${getImage}')` }"
-      ></div>
-    </div>
-    <div class="photo-body p-3">
-      <div class="columns is-mobile">
-        <div class="column">
-          <div class="photo-title">{{ getTitle }}</div>
-          <div class="photo-likes">{{ getLikes }} Likes</div>
-        </div>
-        <div class="column">
-          <div class="photo-meta">
-            <div class="photo-share" @click="toggleSosmed">
-              <i class="fa fa-share-alt fa-lg"></i>
+    <div class="container-fluid">
+      <router-link :to="'/'" class="back-button">
+        <i class="fa fa-arrow-left"></i>
+      </router-link>
+      <div class="photo-header">
+        <div
+          class="photo-image"
+          :style="{ backgroundImage: `url('${getImage}')` }"
+        ></div>
+      </div>
+      <div class="photo-body p-3">
+        <div class="columns is-mobile">
+          <div class="column">
+            <div class="photo-title">{{ getTitle }}</div>
+            <div class="photo-likes">{{ getLikes }} Likes</div>
+          </div>
+          <div class="column">
+            <div class="photo-meta">
+              <div class="photo-share" @click="toggleSosmed">
+                <i class="fa fa-share-alt fa-lg"></i>
+              </div>
+              <div class="photo-like" @click="toggleLike">
+                <i v-if="isLiked" class="fa fa-heart fa-lg"></i>
+                <i v-else class="fa fa-heart-o fa-lg"></i>
+              </div>
+              <SocialMedia :is-shown="showSosmed" />
             </div>
-            <div class="photo-like" @click="toggleLike">
-              <i v-if="isLiked" class="fa fa-heart fa-lg"></i>
-              <i v-else class="fa fa-heart-o fa-lg"></i>
-            </div>
-            <SocialMedia :is-shown="showSosmed" />
           </div>
         </div>
-      </div>
-      <div class="photo-desc py-3">
-        <p>{{ getDesc }}</p>
+        <div class="photo-desc py-3">
+          <p>{{ getDesc }}</p>
+        </div>
       </div>
     </div>
   </section>
@@ -39,7 +41,6 @@
 import VueTypes from "vue-types";
 import SocialMedia from "@/components/molecule/SocialMedia";
 import { mapGetters } from "vuex";
-import localforage from "localforage";
 
 export default {
   name: "PhotoDetail",
@@ -81,13 +82,7 @@ export default {
     }
   },
   mounted() {
-    localforage.getItem("selectedPhoto").then(resp => {
-      if (resp && resp.id === this.getPhotoId) {
-        this.photoData = resp;
-      } else {
-        this.getPhotoData();
-      }
-    });
+    this.getPhotoData();
   },
   methods: {
     toggleLike() {

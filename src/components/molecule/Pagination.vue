@@ -6,7 +6,7 @@
         v-for="index in maxPagination"
         :key="index"
         class="pagination-link"
-        :class="{ 'is-current': index == PAGE }"
+        :class="{ 'is-current': index == getCurrentPage }"
         @click="getPhotosByPage(index)"
       >
         {{ index }}
@@ -18,29 +18,36 @@
 
 <script>
 import { mapGetters } from "vuex";
+import localforage from "localforage";
 export default {
   name: "Pagination",
   data() {
     return {
-      maxPagination: 5
+      maxPagination: 5,
     };
   },
   computed: {
-    ...mapGetters(["PAGE"])
+    ...mapGetters(["PAGE"]),
+    getCurrentPage() {
+      return this.PAGE;
+    }
   },
+  mounted() {},
   methods: {
     getPhotosByPage(page) {
       this.$store.dispatch("GET_PHOTOS", page);
     },
     goToPrev() {
-      const currentPage = this.PAGE;
-      const prevPage = currentPage != 1 ? this.PAGE - 1 : 1;
+      const currentPage = this.getCurrentPage;
+      const prevPage = currentPage != 1 ? this.getCurrentPage - 1 : 1;
       this.$store.dispatch("GET_PHOTOS", prevPage);
     },
     goToNext() {
-      const currentPage = this.PAGE;
+      const currentPage = this.getCurrentPage;
       const nextPage =
-        currentPage < this.maxPagination ? this.PAGE + 1 : this.maxPagination;
+        currentPage < this.maxPagination
+          ? this.getCurrentPage + 1
+          : this.maxPagination;
       this.$store.dispatch("GET_PHOTOS", nextPage);
     }
   }

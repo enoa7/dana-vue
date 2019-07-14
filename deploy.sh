@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+message=$1;
+
 # abort on errors
 set -e
 
@@ -14,9 +16,8 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m "$message"
 
-# git push -f git@github.com:enoa7/enoa7.github.io.git master
 git push -f git@github.com:enoa7/dana-vue.git master
 
 cd -
