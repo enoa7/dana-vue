@@ -16,7 +16,7 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "localforage": "^1.7.3",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "vue": "^2.6.10",
     "vue-router": "^3.0.7",
     "vue-types": "^1.5.5",
